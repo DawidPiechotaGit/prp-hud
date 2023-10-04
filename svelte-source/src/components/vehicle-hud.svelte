@@ -96,7 +96,7 @@
     border-left: 52px solid transparent;
     border-right: 52px solid transparent;
   }
-  #overlay-border {
+  /* #overlay-border {
     position: relative;
     right: -3.5vh!important;
     bottom: 4vh!important;
@@ -130,7 +130,7 @@
     border-color: inherit;
     border-left: 52px solid transparent;
     border-right: 52px solid transparent;
-  }
+  } */
   #speedometer {
     position: relative;
     right: -1.1vh!important;
@@ -327,31 +327,98 @@
 
 @media (width: 1920px) and (height: 1080px) {
   .responsive {
-    margin-right: 6vw!important;
+    margin-right: 50%!important;
     transform: scale(1, 1);
-    bottom: 5.8vh!important;
+    bottom: 6.9vh!important;
   }
+  #overlay {
+    position: relative;
+    right: -3.5vh!important;
+    bottom: 4vh!important;
+  }
+  #overlay {
+    margin-top: 30px;
+    width: 104px;
+    height: 60px;
+    background-color: #3038415d;
+    border-color: #3038415d;
+    position: relative;
+    display: inline-block;
+  }
+  #overlay:before {
+    content: " ";
+    width: 0; height: 0;
+    border-bottom: 31px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+    position: absolute;
+    top: -30px;
+  }
+  #overlay:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    bottom: -30px;
+    border-top: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+  }
+  /* #overlay-border {
+    position: relative;
+    right: -3.5vh!important;
+    bottom: 4vh!important;
+  } */
+  /* #overlay-border {
+    margin-top: 30px;
+    width: 104px;
+    height: 60px;
+    background-color: #3038415d;
+    border-color: #3038415d;
+    position: relative;
+    display: inline-block;
+    transform: scale(1.04);
+  }
+  #overlay-border:before {
+    content: " ";
+    width: 0; height: 0;
+    border-bottom: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+    position: absolute;
+    top: -30px;
+  }
+  #overlay-border:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    bottom: -30px;
+    border-top: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+  } */
   #speedometer {
     position: relative;
-    right: 1.5vh!important;
+    right: -1.5vh!important;
+    bottom: 4.5vh!important;
   }
   #fuelgauge {
     position: relative;
-    right: 3.9vw!important;
-    bottom: 5.1vh!important;
+    right: -0.1vh!important;
+    bottom: 2.7vh!important;
   }
   #altitudegauge {
     position: relative;
-    right: 5.9vw!important;
+    right: -8.3vh!important;
+    bottom: 0.5vh!important;
   }
   #seatbelt {
     position: relative;
-    right: 6.5vw!important;
-  }
-  #seatbeltAltitude {
-    position: relative;
-    right: 4.7vw!important;
-    bottom: 11vh!important;
+    right: 4.2vh!important;
+    bottom: 6.2vh!important;
   }
 }
 

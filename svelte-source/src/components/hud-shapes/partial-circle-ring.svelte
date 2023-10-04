@@ -217,10 +217,10 @@
 
 @media (width: 1920px) and (height: 1080px) {
   .vehicle-number {
-    font-size: 2vh!important;
+    font-size: 4.8vh!important;
   }
   .vehicle-text {
-    font-size: 1.1vh!important;
+    font-size: 0.8vh!important;
   }
 }
 
