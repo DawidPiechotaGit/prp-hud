@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'ps-hud'
+description 'prp-hud'
 version '2.1.0'
 
 shared_scripts {

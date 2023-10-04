@@ -1423,7 +1423,7 @@ async function Me(n, e = {}) {
       headers: { "Content-Type": "application/json; charset=UTF-8" },
       body: JSON.stringify(e),
     },
-    o = "ps-hud";
+    o = "prp-hud";
   try {
     return await (await fetch(`https://${o}/${n}`, t)).json();
   } catch {}
