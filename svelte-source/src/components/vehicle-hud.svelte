@@ -20,7 +20,7 @@
       />
     </div>
     <div class="responsive" id="fuelgauge">
-      <PartialCircleRing maxLengthDisplay={100} rotateDegree={235} ringSize={2.5} progressColor={$VehicleHudStore.fuelColor}
+      <PartialCircleRing maxLengthDisplay={60} rotateDegree={250} ringSize={2.5} progressColor={$VehicleHudStore.fuelColor}
         outlineColor={"#415c72"} outlineColorOpacity={0.6} height={30} width={30} progressValue={$VehicleHudStore.fuel}
         icon={faGasPump} iconColor={"white"} iconScaling={0.32}
       />
@@ -340,15 +340,15 @@
     margin-top: 30px;
     width: 104px;
     height: 60px;
-    background-color: #3038415d;
-    border-color: #3038415d;
+    background-color: #303841cc;
+    border-color: #303841cc;
     position: relative;
     display: inline-block;
   }
   #overlay:before {
     content: " ";
     width: 0; height: 0;
-    border-bottom: 31px solid;
+    border-bottom: 30px solid;
     border-color: inherit;
     border-left: 52px solid transparent;
     border-right: 52px solid transparent;
@@ -408,7 +408,7 @@
   #fuelgauge {
     position: relative;
     right: -0.1vh!important;
-    bottom: 2.7vh!important;
+    bottom: 2.3vh!important;
   }
   #altitudegauge {
     position: relative;
