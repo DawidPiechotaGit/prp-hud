@@ -1,4 +1,4 @@
-[Alt text](image.png)
+![[Alt text](image.png)](image.png)
 
 ### prp-hud
 
