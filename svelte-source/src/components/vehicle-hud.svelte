@@ -71,6 +71,7 @@
     margin-top: 30px;
     width: 104px;
     height: 60px;
+    background: radial-gradient(#333c46, #363f49, #37414b, #303841, #303841);
     background-color: #303841;
     border-color: #303841;
     position: relative;
