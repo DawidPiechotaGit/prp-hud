@@ -12,7 +12,7 @@
 {#if $VehicleHudStore.show || DebugStore}
     <!-- <div class="responsive" id="overlay" style="background-color: #303841; width: 100px; height: 100px; border-radius: 360px; border: solid 3px #415c72">  -->
       <div class="responsive" id="overlay-border"> </div>
-      <div class="responsive" id="overlay"> </div>
+      <!-- <div class="responsive" id="overlay"> </div> -->
     <div class="responsive" id="speedometer">
       <PartialCircleRing maxLengthDisplay={100} rotateDegree={212} ringSize={0} progressColor={"white"}
         outlineColor={"black"} outlineColorOpacity={0.6} height={60} width={60} progressValue={$VehicleHudStore.speed}

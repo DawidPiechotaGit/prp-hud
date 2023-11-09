@@ -58,8 +58,8 @@
         </svg>
 
         <svg class="bearing" viewBox="{$progressTween} 0 180 1.5">
-            <text x="0"   y="1.5" dominant-baseline="middle" text-anchor="middle" fill="yellow">N</text>
-            <text x="360" y="1.5" dominant-baseline="middle" text-anchor="middle" fill="yellow">N</text>
+            <text x="0"   y="1.5" dominant-baseline="middle" text-anchor="middle" fill="cyan">N</text>
+            <text x="360" y="1.5" dominant-baseline="middle" text-anchor="middle" fill="cyan">N</text>
             <text x="315" y="-11" dominant-baseline="middle" text-anchor="middle" fill="white" class="bearingText">NW</text>
             <text x="-45" y="-11" dominant-baseline="middle" text-anchor="middle" fill="white" class="bearingText">NW</text>
             <text x="45"  y="-11" dominant-baseline="middle" text-anchor="middle" fill="white" class="bearingText">NE</text>

@@ -126,7 +126,7 @@
   <text class="vehicle-number" fill="white" x="50%" y="40%" dominant-baseline="middle" text-anchor="middle">
     {Math.floor($displayNumberTween)}
   </text>
-  <text class="vehicle-text" fill="white" x="50%" y="75%" dominant-baseline="middle" text-anchor="middle">
+  <text class="vehicle-text" fill="white" x="50%" y="78%" dominant-baseline="middle" text-anchor="middle">
     {text}
   </text>
   {/if}
@@ -154,7 +154,8 @@
 
 @media (min-width: 800px) {
   .vehicle-number {
-    font-size: 5vh!important;
+    font-size: 4vh!important;
+    font-family: 'Anton';
   }
   .vehicle-text {
     font-size: 0.9vh!important;
