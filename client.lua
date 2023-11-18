@@ -166,7 +166,7 @@ AddEventHandler("pma-voice:radioActive", function(isRadioTalking)
 end)
 
 -- Callbacks & Events
-RegisterCommand('menu', function()
+RegisterCommand('hud', function()
     Wait(50)
     if showMenu then return end
     TriggerEvent("hud:client:playOpenMenuSounds")
@@ -183,7 +183,7 @@ RegisterNUICallback('closeMenu', function(_, cb)
     SetNuiFocus(false, false)
 end)
 
-RegisterKeyMapping('menu', Lang:t('info.open_menu'), 'keyboard', Config.OpenMenu)
+-- RegisterKeyMapping('menu', Lang:t('info.open_menu'), 'keyboard', Config.OpenMenu)
 
 -- Reset hud
 local function restartHud()
