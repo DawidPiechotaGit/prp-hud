@@ -9,12 +9,11 @@
   export let iconColor: string = "red";
   export let iconContrast: number = 100;
   export let iconDropShadowAmount: number = 0;
-  export let iconRotateDegree: number = 0;
   export let iconScaling: number = 0.45;
   export let iconTranslateX: number = 0;
   export let iconTranslateY: number = 0;
   export let innerColor: string = "#212121";
-  export let name: string = "";
+  export let outlineBlack: string = "#141c24";
   export let outlineColor: string = "red";
   export let outlineContrast: number = 100;
   export let outlineDropShadowAmount: number = 0;
@@ -22,7 +21,7 @@
   export let progressContrast: number = 100;
   export let progressDropShadowAmount: number = 0;
   export let progressValue: number = 100;
-  export let ringSize: number = 4;
+  export let ringSize: number = 5;
   export let rotateDegree: number = 0;
   export let translateX: number = 0;
   export let translateY: number = 0;
@@ -61,38 +60,38 @@
     { rotateDegree > 0 ? "rotate("+rotateDegree+" "+radius+" "+radius+")": ""}
     { "translate("+translateX+" "+translateY+")" }"
   >
-    <circle
+    <!-- <circle
       fill={innerColor}
       stroke="transparent"
       stroke-dashoffset={0}
       stroke-dasharray={circumference +' ' + circumference}
-      stroke-width={ringSize-0.6}
+      stroke-width={ringSize-4}
       r={normalizedRadius - (ringSize/2) + 0.1}
       cx={radius}
       cy={radius}
       transform="rotate(-90, {radius}, {radius})"
-    />
+    /> -->
     {#if displayOutline}
-    <circle
-      fill="transparent"
-      stroke={outlineColor}
-      stroke-dashoffset={0}
-      stroke-dasharray={circumference + ' ' + circumference}
-      stroke-width={ringSize}
-      r={normalizedRadius}
-      cx={radius}
-      cy={radius}
-      transform="rotate(-90, {radius}, {radius})"
-      style="filter: {outlineDropShadowAmount ? "drop-shadow(0px 0px "+outlineDropShadowAmount+"px "+outlineColor+")": ""}
-                     {"contrast("+outlineContrast+"%)"};"
-    />
-  {/if}
+      <circle
+        fill={outlineBlack}
+        stroke={outlineBlack}
+        stroke-dashoffset={0}
+        stroke-dasharray={circumference + ' ' + circumference}
+        stroke-width={ringSize}
+        r={normalizedRadius}
+        cx={radius}
+        cy={radius}
+        transform="rotate(-90, {radius}, {radius})"
+        style="filter: {outlineDropShadowAmount ? "drop-shadow(0px 0px "+outlineDropShadowAmount+"px "+outlineColor+")": ""}
+                      {"contrast("+outlineContrast+"%)"};"
+      />
+    {/if}
     <circle
       stroke="{progressColor}"
       fill="transparent"
       stroke-dashoffset={strokeDashoffset}
       stroke-dasharray={circumference + ' ' + circumference}
-      stroke-width={ringSize}
+      stroke-width={ringSize-3}
       r={normalizedRadius}
       cx={radius}
       cy={radius}

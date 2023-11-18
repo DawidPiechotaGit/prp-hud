@@ -28,6 +28,7 @@
   export let showInnerBG: boolean = false;
   export let displayNumber: number = 0;
   export let text: string = "";
+  export let text2: string = "";
   
   let radius: number = 25;
   let transposeValue: number = progressValue / maxProgressValue * 100;
@@ -130,6 +131,14 @@
     {text}
   </text>
   {/if}
+  {#if text2}
+  <text class="vehicle-number2" fill="white" x="50%" y="40%" dominant-baseline="middle" text-anchor="middle">
+    {Math.floor($displayNumberTween)}
+  </text>
+  <text class="vehicle-text2" fill="white" x="50%" y="78%" dominant-baseline="middle" text-anchor="middle">
+    {text}
+  </text>
+  {/if}
   <g >
     {#if icon}
     <Fa icon={icon} scale={iconScaling} translateX={iconTranslateX}
@@ -219,16 +228,26 @@
 @media (width: 1920px) and (height: 1080px) {
   .vehicle-number {
     font-size: 4vh!important;
+    letter-spacing: 3px;
   }
   .vehicle-text {
     font-size: 0.6vh!important;
+  }
+  .vehicle-number2 {
+    font-size: 1vh!important;
+    font-family: 'Anton';
+    font-weight: 600;
+    text-shadow: -1px -1px 0 rgba(0,0,0, 0.7), 1px -1px 0 rgba(0,0,0, 0.7), -1px 1px 0 rgba(0,0,0, 0.7), 1px 1px 0 rgba(0,0,0, 0.7); 
+  }
+  .vehicle-text2 {
+    font-size: 0.0vh!important;
   }
 }
 
 @media (width: 1280px) and (height: 720px) {
   .vehicle-number {
     font-size: 3vh!important;
-  }
+    color: rgb(61, 82, 112) }
   .vehicle-text {
     font-size: 1.4vh!important;
   }

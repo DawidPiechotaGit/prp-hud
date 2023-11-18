@@ -53,25 +53,25 @@ export const layoutPresets = ["esx-hud-hard-to-let-go"];
 export type layoutPresetKind = (typeof layoutPresets)[number];
 
 export const shapes = [
-  "badge",
+  // "badge",
   "circle-ring",
-  "circle-ring-whole",
-  "circle-circle-fill",
+  // "circle-ring-whole",
+  // "circle-circle-fill",
   "circle-square-fill",
-  "circle-whole", //"cylinder",
-  "diamond-ring",
-  "diamond-whole",
-  "hexagon-ring",
+  // "circle-whole", //"cylinder",
+  // "diamond-ring",
+  // "diamond-whole",
+  // "hexagon-ring",
   "hexagon-whole",
-  "horizontal-bar", //"icon",
-  "icon-percentage",
-  "pill-ring",
-  "pill-whole",
-  "square-circular-fill",
-  "square-ring",
-  "square-whole",
-  "star-ring",
-  "triangle-ring",
+  // "horizontal-bar", //"icon",
+  // "icon-percentage",
+  // "pill-ring",
+  // "pill-whole",
+  // "square-circular-fill",
+  // "square-ring",
+  // "square-whole",
+  // "star-ring",
+  // "triangle-ring",
   // "vertical-bar",
 ] as const;
 export type shapekind = (typeof shapes)[number];
@@ -137,8 +137,11 @@ export class baseIcon implements baseIconProps {
     switch (shape) {
       case "circle-circle-fill":
       case "circle-square-fill":
+        this.iconScaling = 0.4;
+        break;
       case "circle-whole":
-        this.iconScaling = 0.55;
+        this.iconScaling = 0.3;
+        this.height = 40;
         break;
       case "diamond-whole":
         this.height = 60;
@@ -170,8 +173,11 @@ export class ringIcon extends baseIcon implements ringIconProps {
     super(shape, optionalProps);
     switch (shape) {
       case "circle-ring":
-      case "circle-ring-whole":
+        this.ringSize = 5;
         this.iconScaling = 0.4;
+        break;
+      case "circle-ring-whole":
+        this.iconScaling = 0.45;
         this.ringSize = 2;
         this.height = 40;
         this.width = 40;
@@ -303,7 +309,7 @@ export type optionalPlayerHudIconsType = Partial<{
   [Property in keyof playerHudIcons]: optionalHudIconType;
 }>;
 
-const DEFAULTICONSHAPE: shapekind = "hexagon-whole";
+const DEFAULTICONSHAPE: shapekind = "circle-square-fill";
 
 export function defaultHudIcon(
   name: string = "",

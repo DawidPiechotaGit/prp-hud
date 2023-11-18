@@ -14,6 +14,8 @@ type vehicleStatusType = {
   ShowCircle: boolean;
   showCircleBorder: boolean;
   seatbeltColor: string;
+  rpmD: number;
+  currentGear: number;
 };
 
 type vehicleHudUpdateMessageType = {
@@ -27,6 +29,8 @@ type vehicleHudUpdateMessageType = {
   showSeatbelt: boolean;
   showSquareB: boolean;
   showCircleB: boolean;
+  rpmD: number;
+  currentGear: number;
 };
 
 type vehicleHudShowMessage = {
@@ -48,6 +52,8 @@ const store = () => {
     ShowCircle: false,
     showCircleBorder: false,
     seatbeltColor: "#e85b14",
+    rpmD: 0,
+    currentGear: 0,
   };
 
   const { subscribe, set, update } = writable(vehicleStatusState);
@@ -55,14 +61,16 @@ const store = () => {
   const methods = {
     receiveShowMessage(data: vehicleHudShowMessage) {
       update((state) => {
-        state.show = data.show;
+        // state.show = data.show;
+        state.show = false;
         state.showSeatBelt = data.seatbelt;
         return state;
       });
     },
     receiveUpdateMessage(data: vehicleHudUpdateMessageType) {
       update((state) => {
-        state.show = data.show;
+        // state.show = data.show;
+        state.show = false;
         state.speed = data.speed;
         state.altitude = data.altitude;
         state.fuel = capAmountToHundred(data.fuel);
@@ -70,6 +78,8 @@ const store = () => {
         state.showAltitude = data.showAltitude;
         state.showSquareBorder = data.showSquareB;
         state.showCircleBorder = data.showCircleB;
+        state.rpmD = data.rpmD;
+        state.currentGear = data.currentGear;
 
         if (data.seatbelt) {
           state.showSeatBelt = false;

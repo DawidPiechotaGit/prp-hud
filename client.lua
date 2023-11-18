@@ -30,6 +30,9 @@ local showSquareB = false
 local CinematicHeight = 0.2
 local w = 0
 local radioTalking = false
+local function convertToPercentage(value)
+    return math.ceil(value * 10000 - 2001) / 80
+end
 local Menu = {
     isOutMapChecked = true, -- isOutMapChecked
     isOutCompassChecked = true, -- isOutCompassChecked
@@ -301,7 +304,7 @@ end)
 RegisterNetEvent("hud:client:playHudChecklistSound", function()
     Wait(50)
     if not Menu.isListSoundsChecked then return end
-    TriggerServerEvent("InteractSound_SV:PlayOnSource", "shiftyclick", 0.5)
+    TriggerServerEvent("InteractSound_SV:PlayOnSource", "shiftyclick", 0.1)
 end)
 
 RegisterNUICallback('showOutMap', function(data, cb)
@@ -797,6 +800,8 @@ local function updatePlayerHud(data)
             engine = data[21],
             cinematic = data[22],
             dev = data[23],
+            -- rpmD = data[24],
+            -- gearD = data[25]
         })
     end
 end
@@ -811,7 +816,9 @@ local prevVehicleStats = {
     nil, --[7] showAltitude
     nil, --[8] showSeatbelt
     nil, --[9] showSquareBorder
-    nil --[10] showCircleBorder
+    nil, --[10] showCircleBorder
+    nil, --[11] rpm
+    nil --[12] gear
 }
 
 local function updateShowVehicleHud(show)
@@ -847,6 +854,8 @@ local function updateVehicleHud(data)
             showSeatbelt = data[8],
             showSquareB = data[9],
             showCircleB = data[10],
+            -- rpmD = data[11],
+            -- gearD = data[12]
         })
     end
 end
@@ -915,6 +924,8 @@ CreateThread(function()
             end
 
             local vehicle = GetVehiclePedIsIn(player)
+            -- local rpm = GetVehicleCurrentRpm(vehicle)
+            -- local currentGear = GetVehicleCurrentGear(vehicle)
 
             if not (IsPedInAnyVehicle(player) and not IsThisModelABicycle(vehicle)) then
                 updatePlayerHud({
@@ -933,14 +944,16 @@ CreateThread(function()
                     oxygen,
                     GetPedParachuteState(player),
                     -1,
-                    cruiseOn,
-                    nitroActive,
-                    harness,
+                    -- cruiseOn,
+                    -- nitroActive,
+                    -- harness,
                     hp,
-                    math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
+                    -- math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
                     -1,
                     Menu.isCineamticModeChecked,
                     dev,
+                    -- convertToPercentage(rpm),
+                    -- currentGear
                 })
             end
 
@@ -978,24 +991,28 @@ CreateThread(function()
                     nitroActive,
                     harness,
                     hp,
-                    math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
-                    (GetVehicleEngineHealth(vehicle) / 10),
+                    -- math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
+                    -- (GetVehicleEngineHealth(vehicle) / 10),
                     Menu.isCineamticModeChecked,
                     dev,
+                    -- convertToPercentage(rpm),
+                    -- currentGear
                 })
 
-                updateVehicleHud({
-                    show,
-                    IsPauseMenuActive(),
-                    seatbeltOn,
-                    math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
-                    getFuelLevel(vehicle),
-                    math.ceil(GetEntityCoords(player).z * 0.5),
-                    showAltitude,
-                    showSeatbelt,
-                    showSquareB,
-                    showCircleB,
-                })
+                -- updateVehicleHud({
+                --     show,
+                --     IsPauseMenuActive(),
+                --     seatbeltOn,
+                --     math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
+                --     getFuelLevel(vehicle),
+                --     math.ceil(GetEntityCoords(player).z * 0.5),
+                --     showAltitude,
+                --     showSeatbelt,
+                --     showSquareB,
+                --     showCircleB,
+                --     convertToPercentage(rpm),
+                --     currentGear
+                -- })
                 showAltitude = false
                 showSeatbelt = true
             else
@@ -1038,7 +1055,7 @@ CreateThread(function()
             if IsPedInAnyVehicle(ped, false) and not IsThisModelABicycle(GetEntityModel(GetVehiclePedIsIn(ped, false))) and not isElectric(GetVehiclePedIsIn(ped, false)) then
                 if exports[Config.FuelScript]:GetFuel(GetVehiclePedIsIn(ped, false)) <= 20 then -- At 20% Fuel Left
                     if Menu.isLowFuelChecked then
-                        TriggerServerEvent("InteractSound_SV:PlayOnSource", "pager", 0.10)
+                        TriggerServerEvent("InteractSound_SV:PlayOnSource", "pager", 0.05)
                         QBCore.Functions.Notify(Lang:t("notify.low_fuel"), "error")
                         Wait(60000) -- repeats every 1 min until empty
                     end
@@ -1092,7 +1109,7 @@ CreateThread(function()
                 hasHarness()
                 local veh = GetEntityModel(GetVehiclePedIsIn(ped, false))
                 if seatbeltOn ~= true and IsThisModelACar(veh) then
-                    TriggerEvent("InteractSound_CL:PlayOnOne", "beltalarm", 0.6)
+                    TriggerEvent("InteractSound_CL:PlayOnOne", "beltalarm", 0.1)
                 end
             end
         end

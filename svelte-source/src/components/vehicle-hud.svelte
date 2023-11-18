@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { faGasPump, faUserSlash } from '@fortawesome/free-solid-svg-icons';
+  import { faGasPump, faUserSlash, faGauge } from '@fortawesome/free-solid-svg-icons';
   import Fa from 'svelte-fa';
   import { fade } from 'svelte/transition';
   import DebugStore from '../stores/debugStore';
   import VehicleHudStore from '../stores/vehicleHudStore';
   import PartialCircleRing from './hud-shapes/partial-circle-ring.svelte';
+  console.log($VehicleHudStore.currentGear)
 
   // TODO see if most of these components can be under the same responsive class div, need to test once this is working
 </script>
@@ -19,6 +20,18 @@
         text={"MPH"} displayNumber={$VehicleHudStore.speed} maxProgressValue={180}
       />
     </div>
+    <div class="responsive" id="rpm-meter">
+      <PartialCircleRing maxLengthDisplay={60} rotateDegree={250} ringSize={5.5} progressColor={"white"}
+      outlineColor={"#415c72"} outlineColorOpacity={0.6} height={100} width={30} progressValue={$VehicleHudStore.rpmD}
+       iconColor={"white"} iconScaling={0.32}
+    />
+    </div>
+    <!-- <div class="responsive" id="current-gear">
+      <PartialCircleRing maxLengthDisplay={100} rotateDegree={212} ringSize={0} progressColor={"white"}
+        outlineColor={"black"} outlineColorOpacity={0.6} height={30} width={30} progressValue={$VehicleHudStore.currentGear}
+        text2={"Gear"} displayNumber={$VehicleHudStore.currentGear} maxProgressValue={180}
+      />
+    </div> -->
     <div class="responsive" id="fuelgauge">
       <PartialCircleRing maxLengthDisplay={60} rotateDegree={250} ringSize={2.5} progressColor={$VehicleHudStore.fuelColor}
         outlineColor={"#415c72"} outlineColorOpacity={0.6} height={30} width={30} progressValue={$VehicleHudStore.fuel}
@@ -420,6 +433,16 @@
     position: relative;
     right: 4.2vh!important;
     bottom: 6.2vh!important;
+  }
+  #rpm-meter {
+    position: relative;
+    right: -3.3vh!important;
+    bottom: 2.0vh!important;
+  }
+  #current-gear {
+    position: relative;
+    right: 5.2vh!important;
+    bottom: 3.5vh!important;
   }
 }
 

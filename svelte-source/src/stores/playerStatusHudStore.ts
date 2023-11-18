@@ -19,6 +19,8 @@ import {
   faMicrophone,
   faHeartPulse,
   faDrumstickBite,
+  faCloudBolt,
+  faCarOn,
 } from "@fortawesome/free-solid-svg-icons";
 import type {
   playerHudIcons,
@@ -85,6 +87,8 @@ type playerHudUpdateMessageType = {
   engine: number;
   cinematic: boolean;
   dev: boolean;
+  rpmD: number;
+  currentGear: number;
 };
 
 const store = () => {
@@ -137,7 +141,7 @@ const store = () => {
         ),
         stress: getLocalStorage(
           "stress",
-          defaultHudIcon("stress", false, faBrain)
+          defaultHudIcon("stress", false, faCloudBolt)
         ),
         oxygen: getLocalStorage(
           "oxygen",
@@ -153,7 +157,7 @@ const store = () => {
         ),
         engine: getLocalStorage(
           "engine",
-          defaultHudIcon("engine", false, faOilCan)
+          defaultHudIcon("engine", false, faCarOn)
         ),
         harness: getLocalStorage(
           "harness",
