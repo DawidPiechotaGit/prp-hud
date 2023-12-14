@@ -54,7 +54,7 @@
       { "translate("+translateX+" "+translateY+")" }"
     >
       <line
-        stroke={outlineColor}
+        stroke={'#141c24'}
         x1="0%"
         y1="50%"
         x2="100%"

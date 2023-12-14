@@ -992,7 +992,7 @@ CreateThread(function()
                     harness,
                     hp,
                     -- math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
-                    -- (GetVehicleEngineHealth(vehicle) / 10),
+                    (GetVehicleEngineHealth(vehicle) / 10),
                     Menu.isCineamticModeChecked,
                     dev,
                     -- convertToPercentage(rpm),

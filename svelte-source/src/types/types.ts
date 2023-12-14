@@ -61,9 +61,9 @@ export const shapes = [
   // "circle-whole", //"cylinder",
   // "diamond-ring",
   // "diamond-whole",
-  // "hexagon-ring",
+  "hexagon-ring",
   "hexagon-whole",
-  // "horizontal-bar", //"icon",
+  "horizontal-bar", //"icon",
   // "icon-percentage",
   // "pill-ring",
   // "pill-whole",
@@ -152,8 +152,13 @@ export class baseIcon implements baseIconProps {
         this.iconScaling = 0.3;
         this.rotateDegree = 60;
         break;
+      case "hexagon-ring":
+        this.iconScaling = 0.3;
+        break;
       case "horizontal-bar":
-        this.iconScaling = 0.6;
+        this.iconScaling = 0.4;
+        this.height = 30;
+        this.width = 50;
         break;
     }
     this.shape = shape;
@@ -190,7 +195,9 @@ export class ringIcon extends baseIcon implements ringIconProps {
         break;
       case "hexagon-ring":
         this.iconScaling = 0.4;
-        this.ringSize = 2;
+        this.width = 42;
+        this.ringSize = 1.5;
+        this.iconScaling = 0.35;
         break;
       case "square-ring":
         this.ringSize = 12;
@@ -309,7 +316,7 @@ export type optionalPlayerHudIconsType = Partial<{
   [Property in keyof playerHudIcons]: optionalHudIconType;
 }>;
 
-const DEFAULTICONSHAPE: shapekind = "circle-square-fill";
+const DEFAULTICONSHAPE: shapekind = "horizontal-bar";
 
 export function defaultHudIcon(
   name: string = "",

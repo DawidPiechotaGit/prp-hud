@@ -28,3 +28,12 @@ html {
 hr {
   opacity: 0.3;
 }
+
+.border-4 {
+  border-width: 1px !important;
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: #141c24 !important;
+}
