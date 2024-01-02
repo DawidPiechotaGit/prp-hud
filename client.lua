@@ -80,7 +80,8 @@ local function hasHarness()
     if not IsPedInAnyVehicle(ped, false) then return end
 
     local _harness = false
-    local hasHarness = exports['qb-smallresources']:HasHarness()
+    -- local hasHarness = exports['qb-smallresources']:HasHarness()
+    local hasHarness = exports['jim-mechanic']:HasHarness()
     if hasHarness then
         _harness = true
     else
@@ -89,6 +90,8 @@ local function hasHarness()
 
     harness = _harness
 end
+
+-- local function hasHarness(items) harness = exports["jim-mechanic"]:HasHarness() end
 
 local function loadSettings()
     QBCore.Functions.Notify(Lang:t("notify.hud_settings_loaded"), "success")
@@ -791,15 +794,15 @@ local function updatePlayerHud(data)
             armed = data[12],
             oxygen = data[13],
             parachute = data[14],
-            nos = data[15],
-            cruise = data[16],
-            nitroActive = data[17],
-            harness = data[18],
-            hp = data[19],
-            speed = data[20],
-            engine = data[21],
-            cinematic = data[22],
-            dev = data[23],
+            -- nos = data[15],
+            -- cruise = data[16],
+            -- nitroActive = data[17],
+            harness = data[15],
+            -- hp = data[19],
+            -- speed = data[20],
+            engine = data[16],
+            cinematic = data[17],
+            dev = data[18],
             -- rpmD = data[24],
             -- gearD = data[25]
         })
@@ -810,15 +813,15 @@ local prevVehicleStats = {
     nil, --[1] show,
     nil, --[2] isPaused,
     nil, --[3] seatbelt
-    nil, --[4] speed
-    nil, --[5] fuel
-    nil, --[6] altitude
-    nil, --[7] showAltitude
+    -- nil, --[4] speed
+    -- nil, --[5] fuel
+    -- nil, --[6] altitude
+    -- nil, --[7] showAltitude
     nil, --[8] showSeatbelt
     nil, --[9] showSquareBorder
     nil, --[10] showCircleBorder
-    nil, --[11] rpm
-    nil --[12] gear
+    -- nil, --[11] rpm
+    -- nil --[12] gear
 }
 
 local function updateShowVehicleHud(show)
@@ -847,13 +850,13 @@ local function updateVehicleHud(data)
             show = data[1],
             isPaused = data[2],
             seatbelt = data[3],
-            speed = data[4],
-            fuel = data[5],
-            altitude = data[6],
-            showAltitude = data[7],
-            showSeatbelt = data[8],
-            showSquareB = data[9],
-            showCircleB = data[10],
+            -- speed = data[4],
+            -- fuel = data[5],
+            -- altitude = data[6],
+            -- showAltitude = data[7],
+            showSeatbelt = data[4],
+            showSquareB = data[5],
+            showCircleB = data[6],
             -- rpmD = data[11],
             -- gearD = data[12]
         })
@@ -943,11 +946,11 @@ CreateThread(function()
                     armed,
                     oxygen,
                     GetPedParachuteState(player),
-                    -1,
+                    -- -1,
                     -- cruiseOn,
                     -- nitroActive,
-                    -- harness,
-                    hp,
+                    harness,
+                    -- hp,
                     -- math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
                     -1,
                     Menu.isCineamticModeChecked,
@@ -986,11 +989,11 @@ CreateThread(function()
                     armed,
                     oxygen,
                     GetPedParachuteState(player),
-                    nos,
-                    cruiseOn,
-                    nitroActive,
+                    -- nos,
+                    -- cruiseOn,
+                    -- nitroActive,
                     harness,
-                    hp,
+                    -- hp,
                     -- math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
                     (GetVehicleEngineHealth(vehicle) / 10),
                     Menu.isCineamticModeChecked,
@@ -999,20 +1002,20 @@ CreateThread(function()
                     -- currentGear
                 })
 
-                -- updateVehicleHud({
-                --     show,
-                --     IsPauseMenuActive(),
-                --     seatbeltOn,
+                updateVehicleHud({
+                    show,
+                    IsPauseMenuActive(),
+                    seatbeltOn,
                 --     math.ceil(GetEntitySpeed(vehicle) * speedMultiplier),
                 --     getFuelLevel(vehicle),
                 --     math.ceil(GetEntityCoords(player).z * 0.5),
                 --     showAltitude,
-                --     showSeatbelt,
-                --     showSquareB,
-                --     showCircleB,
+                    showSeatbelt,
+                    showSquareB,
+                    showCircleB,
                 --     convertToPercentage(rpm),
                 --     currentGear
-                -- })
+                })
                 showAltitude = false
                 showSeatbelt = true
             else

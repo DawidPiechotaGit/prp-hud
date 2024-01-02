@@ -61,16 +61,16 @@ const store = () => {
   const methods = {
     receiveShowMessage(data: vehicleHudShowMessage) {
       update((state) => {
-        // state.show = data.show;
-        state.show = false;
+        state.show = data.show;
+        // state.show = false;
         state.showSeatBelt = data.seatbelt;
         return state;
       });
     },
     receiveUpdateMessage(data: vehicleHudUpdateMessageType) {
       update((state) => {
-        // state.show = data.show;
-        state.show = false;
+        state.show = data.show;
+        // state.show = false;
         state.speed = data.speed;
         state.altitude = data.altitude;
         state.fuel = capAmountToHundred(data.fuel);

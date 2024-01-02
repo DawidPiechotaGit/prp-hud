@@ -14,7 +14,7 @@
     <!-- <div class="responsive" id="overlay" style="background-color: #303841; width: 100px; height: 100px; border-radius: 360px; border: solid 3px #415c72">  -->
       <div class="responsive" id="overlay-border"> </div>
       <!-- <div class="responsive" id="overlay"> </div> -->
-    <div class="responsive" id="speedometer">
+    <!-- <div class="responsive" id="speedometer">
       <PartialCircleRing maxLengthDisplay={100} rotateDegree={212} ringSize={0} progressColor={"white"}
         outlineColor={"black"} outlineColorOpacity={0.6} height={60} width={60} progressValue={$VehicleHudStore.speed}
         text={"MPH"} displayNumber={$VehicleHudStore.speed} maxProgressValue={180}
@@ -25,38 +25,38 @@
       outlineColor={"#415c72"} outlineColorOpacity={0.6} height={100} width={30} progressValue={$VehicleHudStore.rpmD}
        iconColor={"white"} iconScaling={0.32}
     />
-    </div>
+    </div> -->
     <!-- <div class="responsive" id="current-gear">
       <PartialCircleRing maxLengthDisplay={100} rotateDegree={212} ringSize={0} progressColor={"white"}
         outlineColor={"black"} outlineColorOpacity={0.6} height={30} width={30} progressValue={$VehicleHudStore.currentGear}
         text2={"Gear"} displayNumber={$VehicleHudStore.currentGear} maxProgressValue={180}
       />
     </div> -->
-    <div class="responsive" id="fuelgauge">
+    <!-- <div class="responsive" id="fuelgauge">
       <PartialCircleRing maxLengthDisplay={60} rotateDegree={250} ringSize={2.5} progressColor={$VehicleHudStore.fuelColor}
         outlineColor={"#415c72"} outlineColorOpacity={0.6} height={30} width={30} progressValue={$VehicleHudStore.fuel}
         icon={faGasPump} iconColor={"white"} iconScaling={0.32}
       />
-    </div>
+    </div> -->
   
-  {#if $VehicleHudStore.showAltitude}
+  <!-- {#if $VehicleHudStore.showAltitude}
     <div class="responsive" id="altitudegauge">
       <PartialCircleRing maxLengthDisplay={100} rotateDegree={225} ringSize={0} progressColor={"white"}
         outlineColor={"black"} outlineColorOpacity={0.6} height={60} width={60} progressValue={$VehicleHudStore.altitude}
         text={"ALT"} displayNumber={$VehicleHudStore.altitude} maxProgressValue={750}
       />
     </div>
-  {/if}
+  {/if} -->
 
   <!-- When in heli or plane -->
-  {#if $VehicleHudStore.showSeatBelt && $VehicleHudStore.showAltitude}
+  <!-- {#if $VehicleHudStore.showSeatBelt && $VehicleHudStore.showAltitude}
     <div transition:fade|local="{{duration: 500}}">
       <div class="responsive" id="seatbeltAltitude">
         <Fa icon={faUserSlash} scale={1.1} style="color:{$VehicleHudStore.seatbeltColor}"/>
       </div>
-    </div>
+    </div> -->
   <!-- When in car -->
-  {:else if $VehicleHudStore.showSeatBelt}
+  {#if $VehicleHudStore.showSeatBelt}
     <div transition:fade|local="{{duration: 500}}">
       <div class="responsive" id="seatbelt">
         <Fa icon={faUserSlash} scale={0.8} style="color:{$VehicleHudStore.seatbeltColor}"/>

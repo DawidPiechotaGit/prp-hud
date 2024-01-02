@@ -58,7 +58,7 @@ const store = () => {
         voice: getLocalStorage("voice", {
           currentEffect: 0,
           colorEffects: [
-            defaultColorEffect("not-talking", "#415c72"),
+            defaultColorEffect("not-talking", "#c5c5c5"),
             defaultColorEffect("talking", "#6960f6"),
             defaultColorEffect("radio-talking", "#D64763"),
           ],
@@ -67,32 +67,32 @@ const store = () => {
         health: getLocalStorage("health", {
           currentEffect: 0,
           colorEffects: [
-            defaultColorEffect("alive", "#20921D"),
-            defaultColorEffect("dead", "#413231"),
+            defaultColorEffect("alive", "#28b166"),
+            defaultColorEffect("dead", "#960521"),
           ],
           editableColors: defaultEditableColor(),
         }),
         armor: getLocalStorage("armor", {
           currentEffect: 0,
           colorEffects: [
-            defaultColorEffect("armor", "#0E2B80"),
-            defaultColorEffect("no-armor", "#413231"),
+            defaultColorEffect("armor", "#2e587a"),
+            defaultColorEffect("no-armor", "#2e587a"),
           ],
           editableColors: defaultEditableColor(),
         }),
         hunger: getLocalStorage("hunger", {
           currentEffect: 0,
           colorEffects: [
-            defaultColorEffect("normal", "#C18A27"),
-            defaultColorEffect("starving", "#413231"),
+            defaultColorEffect("normal", "#fa9f4e"),
+            defaultColorEffect("starving", "#fa9f4e"),
           ],
           editableColors: defaultEditableColor(),
         }),
         thirst: getLocalStorage("thirst", {
           currentEffect: 0,
           colorEffects: [
-            defaultColorEffect("normal", "#49ADC3"),
-            defaultColorEffect("thirsty", "#413231"),
+            defaultColorEffect("normal", "#15b5b1"),
+            defaultColorEffect("thirsty", "#15b5b1"),
           ],
           editableColors: defaultEditableColor(),
         }),

@@ -27,7 +27,7 @@
     bottom: 6.30%;
     width: 29vh;
     height: 18.5vh;
-    border: 2px solid #050e18;
+    border: 2px solid rgb(46, 199, 226);
     position: absolute;
     display: inline-block;
     border-radius: 3px;
@@ -37,7 +37,7 @@
     bottom: 6.9%;
     width: 27vh;
     height: 22.9vh;
-    border: 4px solid #050e18;
+    border: 4px solid rgb(46, 199, 226);
     position: absolute;
     display: inline-block;
     border-radius: 50%;

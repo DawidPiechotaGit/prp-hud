@@ -64,7 +64,7 @@ export const shapes = [
   "hexagon-ring",
   "hexagon-whole",
   "horizontal-bar", //"icon",
-  // "icon-percentage",
+  "icon-percentage",
   // "pill-ring",
   // "pill-whole",
   // "square-circular-fill",
@@ -316,7 +316,7 @@ export type optionalPlayerHudIconsType = Partial<{
   [Property in keyof playerHudIcons]: optionalHudIconType;
 }>;
 
-const DEFAULTICONSHAPE: shapekind = "horizontal-bar";
+const DEFAULTICONSHAPE: shapekind = "hexagon-whole";
 
 export function defaultHudIcon(
   name: string = "",
